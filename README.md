@@ -1,2 +1,2 @@
-# Machine Learning with JS
+# Machine Learning (Python)
 > Basic machine learning implementation with Linear Regresstion and Gradient Descent.
