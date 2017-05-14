@@ -56,17 +56,17 @@ def gradient_decent(X, y, theta, alpha, num_iter):
         # theta0 := theta0 - alpha * 1/m * (theta*x - y) 
         # theta1 := theta1 - aplpha * 1/m * (theta*x - y) * x
         
-        # first part of the gradient decent algorithm make a prediction using the current theta0 and theta1 values 
+        # first part of the gradient decent algorithm: make a prediction using the current theta0 and theta1 values 
         # theta0 and theta1 are first initiated to 0, but they could be initiated to any other number 
         prediction = X.dot(theta).flatten()
         
-        # second part of gradient decent, find the difference between expected and actual value then multiply times the x value
+        # second part of gradient decent algorithm: find the difference between expected and actual value then multiply times the x value
         error_theta0 = (prediction - y)
         error_theta1 = (prediction - y) * X[:, 1]
         
-        # third part of gradient decent, find the new theta simultaneously for theta0 and theta1 
+        # third part of gradient decent: find the new theta simultaneously for theta0 and theta1 
         # using the rest of the gradient decent function theta := theta - (alpha * 1/m * errors) 
-        # also since we're doing "batch" gradient decent, that is using all the training samples each iteration, we sum() the errors.
+        # also since we're doing "batch" gradient decent, which means using all the training samples each iteration, we sum() the errors.
         theta[0][0] = theta[0][0] - alpha * ( 1.0 / m ) * error_theta0.sum() 
         theta[1][0] = theta[1][0] - alpha * ( 1.0 / m ) * error_theta1.sum()
         
