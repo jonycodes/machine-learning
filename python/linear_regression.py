@@ -2,7 +2,7 @@
 
 from numpy import loadtxt, zeros, ones, array, linspace, logspace
 from pylab import scatter, show, title, xlabel, ylabel, plot, contour  
-data = loadtxt("ex1/ex1data1.txt", delimiter=",")
+data = loadtxt('ex1data1.txt', delimiter=',')
 
 # print data
 x = data[:, 0]
@@ -11,9 +11,9 @@ y = data[:, 1]
 m = y.size 
 
 scatter(x, y, marker='o', c='b')
-title("Profit distribution in cities by population")
-xlabel("Population is Cities, $10,000")
-ylabel("Profit in $10,000")
+title('Profit distribution in cities by population')
+xlabel('Population is Cities, $10,000')
+ylabel('Profit in $10,000')
 
 
 # computing cost with mean of squares function
@@ -24,7 +24,7 @@ def compute_cost(X, y, theta):
     # theta and x values are threated as vectors so we can use dot product to calculate t0 * x0 + t1 + x1, etc  
     predictions = X.dot(theta).flatten()
 
-    # we square the error to normalize the data since we don't want negative values (mean of "squares")
+    # we square the error to normalize the data since we don't want negative values (mean of 'squares')
     errors = (predictions - y) ** 2
 
     # Ordinary of two squares cost function or mean of square cost
@@ -66,7 +66,7 @@ def gradient_decent(X, y, theta, alpha, num_iter):
         
         # third part of gradient decent: find the new theta simultaneously for theta0 and theta1 
         # using the rest of the gradient decent function theta := theta - (alpha * 1/m * errors) 
-        # also since we're doing "batch" gradient decent, which means using all the training samples each iteration, we sum() the errors.
+        # also since we're doing 'batch' gradient decent, which means using all the training samples each iteration, we sum() the errors.
         theta[0][0] = theta[0][0] - alpha * ( 1.0 / m ) * error_theta0.sum() 
         theta[1][0] = theta[1][0] - alpha * ( 1.0 / m ) * error_theta1.sum()
         
@@ -90,7 +90,7 @@ it[:, 1] = x
 # theta is a vector <t0, t1> initiated to 0 
 theta = zeros(shape=(2, 1))
 
-# print "First cost"
+# print 'First cost'
 # print compute_cost(it, y, theta)
 
 # standard learning rate
