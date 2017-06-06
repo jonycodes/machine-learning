@@ -16,7 +16,7 @@ for iter = 1:num_iters
     %       of the cost function (computeCostMulti) and gradient here.
     %
 
-   pred = X * theta;
+    pred = X * theta;
 
     % calculating error using matrix and vector mulitplication 
     % here theta0 and theta1 are being calculating separately but simultaneously

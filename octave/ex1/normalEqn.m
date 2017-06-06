@@ -15,7 +15,9 @@ theta = zeros(size(X, 2), 1);
 % more efficient way to compute inverse of matrix instead of pinv,
 % use the \ operator which is optimized to use gradient decent to find x on the equality: 
 % Ax = b (x = pinv(A)*b) instead of manually inversing the matrix 
-theta = (X'*X) \ X'*y;
+
+% using normal equation inverse(X'X) * X'*y
+theta = pinv(X'*X) * X'*y;
 
 
 end
