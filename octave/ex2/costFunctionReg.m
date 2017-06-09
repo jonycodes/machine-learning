@@ -38,7 +38,7 @@ reg = (lambda / m) * temp_theta;
 unreg_grad = (1/m) * sum((pred - y).* X);
 
 % adding unregularized term theta0
-grad =  [unreg_grad(1), (unreg_grad(2:end) + reg')];
+grad = [unreg_grad(1) (unreg_grad(2:end) + reg')];
 
 % =============================================================
 
