@@ -26,14 +26,18 @@ size(Theta1);
 % applying input to first layer  
 % X is 5000 by 401 Theta1 is 25 by 401
 z = X * Theta1';
+% adding intercept term
 g = [ones(m, 1), sigmoid(z)];
 
 
 % applying input to second layer
 % g is 5000 by 26 Theta2 is 10 by 26
 z = g * Theta2';
+
+% the g below is 5000 by 10
 g = sigmoid(z);
-% output
+
+% output 5000 by 1 matrix
 [v p] = max(g, [], 2);
 
 
