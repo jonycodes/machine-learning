@@ -115,7 +115,7 @@ for i=1:m
     a1 = [1; a1];
     % we compute z for layer one
     z2 = Theta1 * a1;
-    % we compute a2, the output of layer one and input of layer three
+    % we compute a2, the output of layer one and input of layer two
     a2 = [1; sigmoid(z2)];
     % we compute z3, the pre-final output for our three layer NN
     z3 = Theta2 * a2;
@@ -136,7 +136,7 @@ for i=1:m
     % during this process we also remove the bias unit
     % since sigmoid gradient does not has a bia unit 
     % because we computed it using z2  
-    % we use d2 to calculus the delta of the previous layer
+    % we use d2 to calculate the delta of the previous layer
     d2  = (Theta2' * d3)(2:end) .* sigmoidGradient(z2);
 
     % we update our accumulator for the second layer delta2
@@ -144,10 +144,10 @@ for i=1:m
     % to the previews small delta times our activation input a2
     delta2 = delta2 + d3*a2';
     
-    % we do the same for the layer before the last,
+    % we do the same for the layer before delta2,
     % which is the first layer
     % same formula but in this case we use d2 
-    % which comes from the next layer after this
+    % which comes from the next layer after this (delta2)
     % and a1, our activation input for this layer
     delta1 = delta1 + d2*a1';
 endfor
@@ -164,7 +164,7 @@ Theta2_grad = (1/m)*delta2;
 %               and Theta2_grad from Part 2.
 
 % to add regularization we simply add the values of our previews gradient 
-% to the regularization term which is (lambda/m)*theta excludid
+% to the regularization term which is (lambda/m)*theta excluding
 % theta0 the first parameter in theta
 % since our theta is matrix we exclude the whole first column of theta by adding 0's instead
 Theta1_grad =  Theta1_grad + [zeros(size(Theta1_grad, 1), 1)  (lambda/m)*temp_theta1];

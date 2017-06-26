@@ -32,13 +32,14 @@ J = ((1/m) * sum((-y.*log(pred))-(1 - y).*log(1 - pred))) + (lambda/(2*m)) * sum
 
 % gradient to feed to the optimzed conjugate gradient
 % regularization for gradient
-reg = (lambda / m) * temp_theta;
+% excluding theta0 (bias term)
+reg = [0; (lambda / m) * temp_theta]';
 
 % unregularized gradient
 unreg_grad = (1/m) * sum((pred - y).* X);
 
 % adding unregularized term theta0
-grad = [unreg_grad(1) (unreg_grad(2:end) + reg')];
+grad = unreg_grad + reg;
 
 % =============================================================
 
