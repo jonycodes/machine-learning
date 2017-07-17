@@ -77,7 +77,6 @@ while ~isempty(email_contents)
 
     % Look up the word in the dictionary and add to word_indices if
     % found
-    % ====================== YOUR CODE HERE ======================
     % Instructions: Fill in this function to add the index of str to
     %               word_indices if it is in the vocabulary. At this point
     %               of the code, you have a stemmed word from the email in
@@ -96,10 +95,11 @@ while ~isempty(email_contents)
     % Note: You can use strcmp(str1, str2) to compare two strings (str1 and
     %       str2). It will return 1 only if the two strings are equivalent.
     %
-
-
-
-
+    for i=1:length(vocabList)
+        if( strcmp(vocabList{i}, str) == 1)
+            word_indices(end+1, :) = i;
+        endif
+    endfor
 
 
 

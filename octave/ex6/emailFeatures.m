@@ -10,7 +10,6 @@ n = 1899;
 % You need to return the following variables correctly.
 x = zeros(n, 1);
 
-% ====================== YOUR CODE HERE ======================
 % Instructions: Fill in this function to return a feature vector for the
 %               given email (word_indices). To help make it easier to 
 %               process the emails, we have have already pre-processed each
@@ -48,8 +47,9 @@ x = zeros(n, 1);
 %
 %
 
-
-
+for i=1:size(word_indices, 1)
+    x(word_indices(i)) = 1;
+endfor
 
 
 

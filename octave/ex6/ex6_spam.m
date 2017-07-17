@@ -29,7 +29,7 @@ clear ; close all; clc
 fprintf('\nPreprocessing sample email (emailSample1.txt)\n');
 
 % Extract Features
-file_contents = readFile('emailSample1.txt');
+file_contents = readFile('emailSample2.txt');
 word_indices  = processEmail(file_contents);
 
 % Print Stats
@@ -125,7 +125,7 @@ pause;
 % Set the file to be read in (change this to spamSample2.txt,
 % emailSample1.txt or emailSample2.txt to see different predictions on
 % different emails types). Try your own emails as well!
-filename = 'spamSample1.txt';
+filename = 'spamSample2.txt';
 
 % Read and predict
 file_contents = readFile(filename);
